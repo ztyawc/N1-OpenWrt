@@ -167,26 +167,9 @@ jobs:
     - name: mv output to upload file
       run: mv /opt/openwrt_packit/output/* upload/
         
-    - name: Upload OpenWrt Firmware to Release
-      uses: ncipollo/release-action@main
-      if: ${{ env.PACKAGED_STATUS == 'success' }} && !cancelled()
+    - name : Upload packages
+      uses: actions/upload-artifact@master
+      if: always()
       with:
-        tag: Test_LEAN_N1_${{ env.PACKAGED_OUTPUTDATE }}
-        artifacts: upload/*
-        allowUpdates: true
-        token: ${{ secrets.GITHUB_TOKEN }}
-        body: |
-          基于lean openwrt构建
-          首次使用建议全新刷写
-          * 基本信息
-          IP: 192.168.2.2
-          账户: root
-          密码: password
-          
-    - name: Delete old releases
-      uses: dev-drprasad/delete-older-releases@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        keep_latest: 5
-        delete_tags : true
+        name: Padavan-packages
+        path: upload/
