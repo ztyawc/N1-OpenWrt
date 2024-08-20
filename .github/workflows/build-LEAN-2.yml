@@ -102,14 +102,14 @@ jobs:
     - name: Clone source code
       working-directory: ./
       run: |
-        git clone $REPO_URL -b $REPO_BRANCH --single-branch --depth=1 openwrt
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
 
-    # - name: cache wrt build
-      # uses: stupidloud/cachewrtbuild@main
-      # with:
-        # ccache: 'true'
-        # mixkey: N1-${{ env.REPO_BRANCH }}
-        # prefix: ${{ github.workspace }}/openwrt
+    - name: cache wrt build
+      uses: stupidloud/cachewrtbuild@main
+      with:
+        ccache: 'true'
+        mixkey: N1-${{ env.REPO_BRANCH }}
+        prefix: ${{ github.workspace }}/openwrt
         
     - name: Update & Install feeds
       working-directory: ./openwrt
