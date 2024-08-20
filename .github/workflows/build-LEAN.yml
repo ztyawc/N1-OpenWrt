@@ -16,9 +16,6 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@main
-
     - name: Check machine configuration
       run: |
         echo "警告⚠"
@@ -82,7 +79,10 @@ jobs:
         echo "=============================================================================="
         df -hT
         echo "=============================================================================="
-
+        
+    - name: Checkout
+      uses: actions/checkout@main
+      
     - name: Initialize environment
       env:
         DEBIAN_FRONTEND: noninteractive
