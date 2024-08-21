@@ -21,7 +21,7 @@ config device
 	option type 'bridge'
 	option name 'docker0'
 
-config interface 'LAN6'
+config interface 'lan6'
 	option proto 'dhcpv6'
 	option ifname '@lan'
 	option reqaddress 'try'
