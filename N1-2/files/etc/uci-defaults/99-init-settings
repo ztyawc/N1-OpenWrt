@@ -1,0 +1,13 @@
+#!/bin/bash
+# 你的自定义命令
+echo "Running custom startup script on first boot"
+
+# 设置docker的目录
+#sed -i 's|/mnt/sda4/docker/|/mnt/mmcblk2p4/docker/|g' /etc/config/dockerd
+
+# 清空socat残留配置
+echo -n > /etc/config/socat
+rm /etc/config/socat-opkg
+
+# 这个脚本会在成功运行后自动被删除
+exit 0
