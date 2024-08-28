@@ -5,7 +5,32 @@
 3、配置文件很精简，让后来的人一看就会。大部分的脚本配置都是密密麻麻的看不明白！<br>
 4、目前的配置编译一次大概是2个小时左右...<br>
 5、为了拥有自己的定制固件，等待了N多个小时的编译周期，如果对你有帮助，欢迎fork！<br>
-
+6、ipv6完整支持！
+包含的插件目录如下，自己可以根据需求增减。对lean大自带的一些插件也做了精简。
+# luci
+CONFIG_PACKAGE_luci-app-amlogic=y
+CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_luci-app-passwall=y
+CONFIG_PACKAGE_luci-app-samba4=y
+CONFIG_PACKAGE_luci-app-vlmcsd=y
+CONFIG_PACKAGE_luci-app-ddns-go=y
+CONFIG_PACKAGE_luci-app-uhttpd=y
+CONFIG_PACKAGE_luci-app-frpc=y
+CONFIG_PACKAGE_luci-app-socat=y
+CONFIG_PACKAGE_luci-app-cifs-mount=y
+CONFIG_PACKAGE_luci-app-wol=y
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-app-alist=y
+CONFIG_PACKAGE_luci-app-ttyd=y
+# theme
+CONFIG_PACKAGE_luci-theme-design=y
+CONFIG_PACKAGE_luci-app-design-config=y
+CONFIG_PACKAGE_luci-theme-netgear=y
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-app-argon-config=y
+# vpn
+CONFIG_PACKAGE_luci-app-openvpn-server=y
+CONFIG_PACKAGE_luci-app-zerotier=y
 
 ***
 # 致谢
