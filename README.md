@@ -6,8 +6,8 @@
 4、目前的配置第一次编译大概是2.5小时左右，第二次编译使用缓存可以节省个把小时。<br>
 5、ipv6完整支持！<br>
 6、为了拥有自己的定制固件，等待了N多个小时的编译周期，如果对你有帮助，欢迎fork！<br>
-包含的插件目录如下，自己可以根据需求增减。对lean大自带的一些插件也做了精简。<br>
-# luci <br>
+# 包含的插件目录如下:<br>
+### luci <br>
 CONFIG_PACKAGE_luci-app-amlogic=y <br>
 CONFIG_PACKAGE_luci-app-dockerman=y <br>
 CONFIG_PACKAGE_luci-app-passwall=y <br>
@@ -22,13 +22,13 @@ CONFIG_PACKAGE_luci-app-wol=y<br>
 CONFIG_PACKAGE_luci-app-mosdns=y<br>
 CONFIG_PACKAGE_luci-app-alist=y<br>
 CONFIG_PACKAGE_luci-app-ttyd=y<br>
-# theme<br>
+### theme<br>
 CONFIG_PACKAGE_luci-theme-design=y<br>
 CONFIG_PACKAGE_luci-app-design-config=y<br>
 CONFIG_PACKAGE_luci-theme-netgear=y<br>
 CONFIG_PACKAGE_luci-theme-argon=y<br>
 CONFIG_PACKAGE_luci-app-argon-config=y<br>
-# vpn<br>
+### vpn<br>
 CONFIG_PACKAGE_luci-app-openvpn-server=y<br>
 CONFIG_PACKAGE_luci-app-zerotier=y<br>
 
