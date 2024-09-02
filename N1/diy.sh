@@ -17,7 +17,7 @@ git clone -b 18.06 --single-branch --depth 1 https://github.com/jerrykuku/luci-t
 git clone -b 18.06 --single-branch --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
 git clone --depth=1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
-git clone --depth 1 https://github.com/sbwml/luci-app-mosdns package/mosdns
+git clone -b v5.3.3 --single-branch --depth 1 https://github.com/sbwml/luci-app-mosdns package/mosdns
 #git clone --depth=1 https://github.com/0x676e67/luci-theme-design package/luci-theme-design
 #git clone --depth=1 https://github.com/0x676e67/luci-app-design-config package/luci-app-design-config
 git clone -b v3.35.0 --single-branch --depth 1 https://github.com/sbwml/luci-app-alist package/alist
