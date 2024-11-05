@@ -1,11 +1,11 @@
 # 项目简介
-本固件适配斐讯 N1 旁路由模式，追求精简轻量!<br>
+本固件适配斐讯 N1 旁路由模式，追求精简纯净!<br>
 1、使用LEAN的openwrt源码，目前集成的都是自己需要的一些插件，L大固件默认勾选的部分插件做了精简！<br>
-2、吸取各个大佬的脚本精华，重点解决了action编译硬盘不够导致编译失败。（踩过很多的坑，让后来者不要走弯路）<br>
-3、配置文件很精简，让后来的人一看就会。大部分的脚本配置都是密密麻麻的看不明白！<br>
+2、自编译脚本吸取各个大佬的精华，重点解决了action编译硬盘不够导致编译失败。（踩过很多的坑，让后来者不要再走弯路）<br>
+3、配置文件很精简，自己要什么不要什么可以增减就行。N1编译必须的Basic Dependence不要精简！<br>
 4、目前的配置第一次编译大概是2.5小时左右，第二次编译使用缓存可以节省个把小时。<br>
 5、ipv6完整支持！<br>
-6、为了拥有自己的定制固件，等待了N多个小时的编译周期，如果对你有帮助，欢迎fork！<br>
+6、为了拥有自己的定制固件，不停修改测试等待了N多个的编译周期，如果对你有帮助，欢迎fork！<br>
 # 包含的插件目录如下:<br>
 ### luci <br>
 CONFIG_PACKAGE_luci-app-amlogic=y <br>
@@ -22,6 +22,9 @@ CONFIG_PACKAGE_luci-app-wol=y<br>
 CONFIG_PACKAGE_luci-app-mosdns=y<br>
 CONFIG_PACKAGE_luci-app-alist=y<br>
 CONFIG_PACKAGE_luci-app-ttyd=y<br>
+CONFIG_PACKAGE_luci-app-acme=y<br>
+CONFIG_PACKAGE_luci-app-rclone=y<br>
+CONFIG_PACKAGE_luci-app-netspeedtest=y<br>
 ### theme<br>
 CONFIG_PACKAGE_luci-theme-design=y<br>
 CONFIG_PACKAGE_luci-app-design-config=y<br>
@@ -31,6 +34,8 @@ CONFIG_PACKAGE_luci-app-argon-config=y<br>
 ### vpn<br>
 CONFIG_PACKAGE_luci-app-openvpn-server=y<br>
 CONFIG_PACKAGE_luci-app-zerotier=y<br>
+![360截图20241105215446408](https://github.com/user-attachments/assets/5b6381d2-52d7-41d2-af12-a7ea0a6d2598)
+![360截图20241105215513569](https://github.com/user-attachments/assets/36f9febd-51bb-41d8-b119-9f9c78967e0a)
 
 ***
 # 致谢
