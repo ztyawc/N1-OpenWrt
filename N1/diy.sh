@@ -16,7 +16,7 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwr
 git clone -b 18.06 --single-branch --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone -b 18.06 --single-branch --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
-git clone -b v6.6.9 --single-branch --depth=1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
+#git clone -b v6.6.9 --single-branch --depth=1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
 #git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky package/lucky
 #git clone --depth=1 https://github.com/sirpdboy/NetSpeedTest package/NetSpeedTest
 
@@ -26,10 +26,8 @@ git clone -b v5-lua --single-branch --depth 1 https://github.com/sbwml/luci-app-
 git clone -b lua --single-branch --depth 1 https://github.com/sbwml/luci-app-alist package/alist
 
 #添加自定义的软件包源
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-theme-design
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-design-config
-
-
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages ddns-go
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-ddns-go
 # Remove packages
 #删除lean库中的插件，使用自定义源中的包。
 rm -rf feeds/packages/net/v2ray-geodata
