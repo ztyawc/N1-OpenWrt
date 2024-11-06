@@ -15,7 +15,6 @@ CONFIG_PACKAGE_luci-app-dockerman=y <br>
 CONFIG_PACKAGE_luci-app-passwall=y <br>
 CONFIG_PACKAGE_luci-app-samba4=y <br>
 CONFIG_PACKAGE_luci-app-vlmcsd=y <br>
-CONFIG_PACKAGE_luci-app-ddns-go=y <br>
 CONFIG_PACKAGE_luci-app-uhttpd=y <br>
 CONFIG_PACKAGE_luci-app-frpc=y<br>
 CONFIG_PACKAGE_luci-app-socat=y<br>
