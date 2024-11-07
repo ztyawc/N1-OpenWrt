@@ -1,4 +1,4 @@
-name: Build OpenWRT-LEAN-TEST for N1
+name: Build OpenWRT-LEAN for X86
 
 on:
   workflow_dispatch:
@@ -6,9 +6,9 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: N1-1/.config
-  DIY_SH: N1-1/diy.sh
-  FILES: N1-1/files
+  CONFIG_FILE: x86/.config
+  DIY_SH: x86/diy.sh
+  FILES: x86/files
   TZ: Asia/Shanghai
 
 jobs:
@@ -103,12 +103,14 @@ jobs:
       working-directory: ./
       run: |
         git clone $REPO_URL -b $REPO_BRANCH openwrt
+        cd openwrt
+        sed -i 's|https://github.com/coolsnowwolf/luci.git;openwrt-23.05|https://github.com/coolsnowwolf/luci|g' feeds.conf.default
 
     - name: cache wrt build
       uses: stupidloud/cachewrtbuild@main
       with:
         ccache: 'true'
-        mixkey: N1-${{ env.REPO_BRANCH }}
+        mixkey: x86-${{ env.REPO_BRANCH }}
         prefix: ${{ github.workspace }}/openwrt
         
     - name: Update & Install feeds
@@ -144,32 +146,10 @@ jobs:
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "compile_status=success" >> $GITHUB_ENV
-
-    - name: copy to upload file
-      if: (!cancelled())
-      run: |
-        df -hT
-        mkdir upload
-        cp openwrt/bin/targets/*/*/*.tar.gz upload/
-
-    - name: Package OpenWrt Firmware
-      if: ${{ env.compile_status }} == 'success' && !cancelled()
-      uses: unifreq/openwrt_packit@master
-      env:
-        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
-        KERNEL_VERSION_NAME: 5.15.148
-        KERNEL_AUTO_LATEST: false
-        PACKAGE_SOC: s905d
-        WHOAMI: fightroad
-        SW_FLOWOFFLOAD: 0
-        SFE_FLOW: 0
-
-    - name: mv output to upload file
-      run: mv /opt/openwrt_packit/output/* upload/
-        
+   
     - name : Upload packages
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: OpenWrt-packages
-        path: upload/
+        name: OpenWrt-x86
+        path: openwrt/bin/targets/
