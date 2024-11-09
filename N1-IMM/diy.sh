@@ -34,12 +34,12 @@ git clone --depth 1 https://github.com/sbwml/luci-app-mosdns package/mosdns
 #rm -rf feeds/luci/applications/openwrt-passwall
 
 # 替换luci-app-openvpn-server imm源的启动不了服务！
-rm -rf feeds/luci/applications/luci-app-openvpn-server
-git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-openvpn-server
+#rm -rf feeds/luci/applications/luci-app-openvpn-server
+#git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-openvpn-server
 # 调整 openvpn-server 到 VPN 菜单
-sed -i 's/services/vpn/g' package/luci-app-openvpn-server/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-openvpn-server/luasrc/model/cbi/openvpn-server/*.lua
-sed -i 's/services/vpn/g' package/luci-app-openvpn-server/luasrc/view/openvpn/*.htm
+#sed -i 's/services/vpn/g' package/luci-app-openvpn-server/luasrc/controller/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-openvpn-server/luasrc/model/cbi/openvpn-server/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-openvpn-server/luasrc/view/openvpn/*.htm
 
 
 #替换luci-app-socat为https://github.com/chenmozhijin/luci-app-socat
