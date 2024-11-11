@@ -43,5 +43,5 @@ git clone --depth 1 https://github.com/sbwml/luci-app-mosdns package/mosdns
 
 
 #替换luci-app-socat为https://github.com/chenmozhijin/luci-app-socat
-rm -rf feeds/luci/applications/luci-app-socat
-git_sparse_clone main https://github.com/chenmozhijin/luci-app-socat luci-app-socat
+#rm -rf feeds/luci/applications/luci-app-socat
+#git_sparse_clone main https://github.com/chenmozhijin/luci-app-socat luci-app-socat
