@@ -20,8 +20,8 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/l
 git clone --depth 1 https://github.com/ophub/luci-app-amlogic package/amlogic
 #git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
 git clone --depth 1 https://github.com/sbwml/luci-app-mosdns package/mosdns
-git clone --depth 1 https://github.com/sbwml/luci-app-alist package/alist
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall
+#git clone --depth 1 https://github.com/sbwml/luci-app-alist package/alist
+#git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall
 
 
 #删除库中的插件，使用自定义源中的包。
@@ -29,9 +29,9 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-argon-config
 #rm -rf feeds/luci/applications/luci-app-ddns-go
 #rm -rf feeds/packages/net/ddns-go
-rm -rf feeds/packages/net/alist
-rm -rf feeds/luci/applications/luci-app-alist
-rm -rf feeds/luci/applications/openwrt-passwall
+#rm -rf feeds/packages/net/alist
+#rm -rf feeds/luci/applications/luci-app-alist
+#rm -rf feeds/luci/applications/openwrt-passwall
 
 # 替换luci-app-openvpn-server imm源的启动不了服务！
 #rm -rf feeds/luci/applications/luci-app-openvpn-server
