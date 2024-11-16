@@ -161,12 +161,12 @@ jobs:
         cp openwrt/bin/targets/*/*/*.vmdk upload/
         
     - name: Get Current Date
-      run: echo "CURRENT_DATETIME=$(date '+%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
+      run: echo "CURRENT_DATETIME=$(date '+%Y%m%d%H%M%S')" >> $GITHUB_ENV
       
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@main
       with:
-        tag: x86_64-${{ env.CURRENT_DATE }}
+        tag: x86_64_${{ env.CURRENT_DATE }}
         artifacts: upload/*
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
