@@ -166,7 +166,7 @@ jobs:
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@main
       with:
-        tag: x86_64_${{ env.CURRENT_DATE }}
+        tag: LEDE_x86_64_${{ env.CURRENT_DATE }}
         artifacts: upload/*
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
