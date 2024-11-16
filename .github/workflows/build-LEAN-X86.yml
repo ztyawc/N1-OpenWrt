@@ -147,9 +147,38 @@ jobs:
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "compile_status=success" >> $GITHUB_ENV
    
-    - name : Upload packages
-      uses: actions/upload-artifact@master
-      if: always()
+    # - name : Upload packages
+      # uses: actions/upload-artifact@master
+      # if: always()
+      # with:
+        # name: OpenWrt-x86
+        # path: openwrt/bin/targets/
+    - name: cp output to upload file
+      run: |
+        df -hT
+        mkdir upload
+        cp openwrt/bin/targets/*/*/*.gz upload/
+        cp openwrt/bin/targets/*/*/*.vmdk upload/
+        
+    - name: Upload OpenWrt Firmware to Release
+      uses: ncipollo/release-action@main
       with:
-        name: OpenWrt-x86
-        path: openwrt/bin/targets/
+        tag: OpenWrt_N1_${{ env.PACKAGED_OUTPUTDATE }}
+        artifacts: upload/*
+        allowUpdates: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+        body: |
+          基于lean openwrt构建
+          首次使用建议全新刷写
+          * 基本信息
+          IP: 192.168.1.1
+          账户: root
+          密码: password
+          
+    - name: Delete old releases
+      uses: dev-drprasad/delete-older-releases@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        keep_latest: 10
+        delete_tags : true

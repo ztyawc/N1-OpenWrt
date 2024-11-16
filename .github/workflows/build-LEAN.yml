@@ -147,13 +147,6 @@ jobs:
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "compile_status=success" >> $GITHUB_ENV
 
-    - name: copy to upload file
-      if: (!cancelled())
-      run: |
-        df -hT
-        mkdir upload
-        cp openwrt/bin/targets/*/*/*.tar.gz upload/
-
     - name: Package OpenWrt Firmware
       if: ${{ env.compile_status }} == 'success' && !cancelled()
       uses: unifreq/openwrt_packit@master
@@ -165,16 +158,13 @@ jobs:
         WHOAMI: fightroad
         SW_FLOWOFFLOAD: 1
         SFE_FLOW: 0
-
-    - name: mv output to upload file
-      run: mv /opt/openwrt_packit/output/* upload/
-        
+       
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@main
       if: ${{ env.PACKAGED_STATUS == 'success' }} && !cancelled()
       with:
         tag: OpenWrt_N1_${{ env.PACKAGED_OUTPUTDATE }}
-        artifacts: upload/*
+        artifacts: /opt/openwrt_packit/output/*
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
@@ -190,5 +180,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        keep_latest: 5
+        keep_latest: 10
         delete_tags : true
